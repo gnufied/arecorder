@@ -29,6 +29,7 @@ ApplicationWindow {
 
       onRecordingChanged: {
         console.info("Something happened here");
+        console.info(audioRecorder.recording);
       }
     }
 
@@ -36,12 +37,10 @@ ApplicationWindow {
         anchors.fill: parent
         button1.onClicked: {
           audioRecorder.record();
-          messageDialog.show(qsTr("Recording started"));
         }
 
         button2.onClicked:  {
           audioRecorder.stop();
-          messageDialog.show(qsTr("Recording stopped"));
         }
 
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
