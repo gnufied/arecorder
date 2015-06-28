@@ -15,12 +15,12 @@ Item {
 
         Button {
             id: button1
-            text: qsTr("Press Me 1")
+            text: qsTr("Record")
         }
 
         Button {
             id: button2
-            text: qsTr("Press Me 2")
+            text: qsTr("Stop")
         }
 
         Button {

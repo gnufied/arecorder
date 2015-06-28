@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Controls 1.3
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
+import com.codemancers.components 1.0
 
 ApplicationWindow {
     title: qsTr("Hello World")
@@ -23,10 +24,26 @@ ApplicationWindow {
         }
     }
 
+    ARecorder {
+      id: audioRecorder
+
+      onRecordingChanged: {
+        console.info("Something happened here");
+      }
+    }
+
     MainForm {
         anchors.fill: parent
-        button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
-        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
+        button1.onClicked: {
+          audioRecorder.record();
+          messageDialog.show(qsTr("Recording started"));
+        }
+
+        button2.onClicked:  {
+          audioRecorder.stop();
+          messageDialog.show(qsTr("Recording stopped"));
+        }
+
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
     }
 
